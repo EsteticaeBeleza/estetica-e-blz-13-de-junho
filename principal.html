@@ -1,0 +1,48 @@
+<?php
+session_start();
+//Verifica se o usuário logou.
+if(!isset ($_SESSION['nome']) || !isset ($_SESSION['acesso']))
+{
+  unset($_SESSION['nome']);
+  unset($_SESSION['acesso']);
+  header('location:index.html');
+  exit;
+}
+
+//Cria variáveis com a sessão.
+$logado = $_SESSION['nome'];
+$acesso = $_SESSION['acesso'];
+?>
+
+<!DOCTYPE html>
+<html lang="pt-br">
+
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link rel="stylesheet" href="./css/principalestilo.css">
+		<link rel="icon" type="image/x-icon" href="/imagens/favicon.png">
+		<title>Estética & Beleza - Página Inicial</title>
+	</head>
+
+	<body>
+		<header>
+			<img src="imagens/favicon.png" alt="some text" width=185px height=170px>
+		</header>
+                
+            <nav>
+				<a href="#">Página Inicial</a>
+				<a href="#">Sobre nós</a>
+				<a href="#">Contatos</a>
+				<a href="#">Ajuda</a>
+			</nav>
+                
+            <div>
+               <li><a href="#">Cabelo</a></li>
+	           <li><a href="#">Maquiagem</a></li>
+	           <li><a href="#">Unhas</a></li>
+	           <li><a href="#">Sobrancelhas</a></li>
+            </div>
+
+	</body>
+</html>
